@@ -1,7 +1,7 @@
 # Submission Dicoding "Belajar Analisis Data dengan Python"
 
 ## Preview
-(preview.png)
+![Preview](preview.png)
 
 
 ## Project Analisis Data
