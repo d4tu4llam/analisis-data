@@ -45,4 +45,4 @@ Proyek ini bertujuan untuk menganalisis data pada Bike Sharing Dataset. Tujuan a
 
 
 ## terinsiprasi
-project ini dimodifikasi dan terinspirasi dari [github arini](https://github.com/kevinsimorangkir2001/dashboard-bike-sharing)
+project ini dimodifikasi dan terinspirasi dari [github kevin](https://github.com/kevinsimorangkir2001/dashboard-bike-sharing)
