@@ -8,8 +8,8 @@ import requests
 
 sns.set(style='dark')
 
-dataset_day = pd.read_csv("dataset_day_clean.csv")
-dataset_hour = pd.read_csv("dataset_hour_clean.csv")
+dataset_day = pd.read_csv("dashboard/dataset_day_clean.csv")
+dataset_hour = pd.read_csv("dashboard/dataset_hour_clean.csv")
 
 datetime_columns = ["date"]
 dataset_day.sort_values(by="date", inplace=True)
