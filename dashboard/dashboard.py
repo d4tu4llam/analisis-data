@@ -5,11 +5,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
 import requests
+import os
 
 sns.set(style='dark')
 
-dataset_day = pd.read_csv("dashboard/dataset_day_clean.csv")
-dataset_hour = pd.read_csv("dashboard/dataset_hour_clean.csv")
+script_dir = os.path.dirname(os.path.abspath(__file__))  # Get script directory
+dataset_day = pd.read_csv(os.path.join(script_dir, "dataset_day_clean.csv"))
+dataset_hour = pd.read_csv(os.path.join(script_dir, "dataset_hour_clean.csv"))
 
 datetime_columns = ["date"]
 dataset_day.sort_values(by="date", inplace=True)
@@ -230,7 +232,7 @@ ax.pie(
     explode=explode, 
     labels=labels, 
     autopct='%1.1f%%', 
-    colors=["#D3D3D3", "#FF4500"], 
+    colors=["#FF4500","#D3D3D3"], 
     shadow=True, 
     startangle=90
 )
@@ -248,6 +250,7 @@ st.subheader("Musim mana yang memiliki penyewaan sepeda paling banyak?")
 df = date_df_days.groupby("season", observed=False)["count_rental"].sum().reset_index()
 
 # Menentukan nilai maksimum untuk sumbu Y
+df = df.sort_values(by="count_rental", ascending=False)
 max_rental = df["count_rental"].max()
 
 # Membuat figure dan barplot
@@ -256,7 +259,7 @@ sns.barplot(
     x="season", 
     y="count_rental", 
     data=df, 
-    palette=["#D3D3D3", "#D3D3D3", "#FF4500", "#D3D3D3"], 
+    palette=["#FF4500", "#D3D3D3", "#D3D3D3", "#D3D3D3"], 
     ci=None
 )
 
@@ -288,7 +291,7 @@ dataset_suhu.columns = ["temp", "count_rental"]
 
 # Membuat bar chart
 fig, ax = plt.subplots(figsize=(10, 8))
-sns.barplot(x="temp", y="count_rental", data=dataset_suhu, palette=["#ADD8E6", "#fff082", "#FF4500"], ax=ax)
+sns.barplot(x="temp", y="count_rental", data=dataset_suhu, palette=["#ADD8E6", "#fff082", "#eb9234"], ax=ax)
 
 # Mengatur format angka pada sumbu Y agar lebih mudah dibaca (dengan pemisah ribuan)
 ax.yaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda x, _: f'{int(x):,}'))
