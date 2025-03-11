@@ -98,7 +98,7 @@ def hour_sum(dataset_hour):
     top_hours_holiday = grouped_data[grouped_data["workingday"] == "Holiday"].nlargest(5, "count_rental")
     bottom_hours_holiday = grouped_data[grouped_data["workingday"] == "Holiday"].nsmallest(5, "count_rental")
     
-    return top_hours_holiday, bottom_hours_holiday, top_hours_holiday, bottom_hours_holiday
+    return top_hours_holiday, bottom_hours_holiday, top_hours_workday, bottom_hours_workday
 
 def sum_order (dataset_hour):
     sum_order_items_df = dataset_hour.groupby("hour").count_rental.sum().sort_values(ascending=False).reset_index()
