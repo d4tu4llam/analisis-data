@@ -141,7 +141,7 @@ with col3:
 st.subheader("Pada jam berapa pada hari kerja penyewaan paling banyak dan paling sedikit?")
 
 # Menghitung jumlah penyewaan berdasarkan hari kerja dan jam
-top_hours_workday, bottom_hours_workday, top_hours_holiday, bottom_hours_holiday = hour_sum(date_df_hour)
+top_hours_holiday, bottom_hours_holiday, top_hours_workday, bottom_hours_workday = hour_sum(date_df_hour)
 
 # Membuat figure untuk hari kerja dengan ukuran 15x5
 fig_workday, axes_workday = plt.subplots(1, 2, figsize=(15, 5))
