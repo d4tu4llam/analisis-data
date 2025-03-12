@@ -284,7 +284,7 @@ st.pyplot(fig)
 ### pertanyaan 4 ==================================================================================================
 st.subheader("Apakah suhu mempengaruhi jumlah penyewa sepeda ?")
 
-dataset_suhu = date_df_hour.groupby(by=["temp"], observed=False).agg({
+dataset_suhu = date_df_days.groupby(by=["temp"], observed=False).agg({
     "count_rental": ["sum"],
 }).reset_index()
 dataset_suhu.columns = ["temp", "count_rental"]
@@ -306,7 +306,7 @@ st.pyplot(fig)
 ###  pertanyaan 5 ==================================================================================================
 
 st.subheader("Performa penyewaan sepeda perusahaan periode 2011-2012")
-fig = plt.figure(figsize=(24, 14))
+fig = plt.figure(figsize=(24,5))
 
 # Menghitung jumlah penyewaan maksimum per hari
 df = date_df_days.groupby("date")["count_rental"].max()
@@ -319,8 +319,8 @@ plt.plot(df.index, df.values, color="#FF4500")
 
 plt.xlabel("Tanggal", fontsize=19)
 plt.ylabel("Jumlah Penyewaan", fontsize=19)
-plt.xticks(fontsize=17)
-plt.yticks(fontsize=17)
+plt.xticks(fontsize=18)
+plt.yticks(fontsize=18)
 
 st.pyplot(fig)
 ### End pertanyaan 5 ==================================================================================================
