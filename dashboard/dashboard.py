@@ -7,7 +7,7 @@ import streamlit as st
 import requests
 import os
 
-sns.set(style='dark')
+sns.set_theme(style='dark')
 
 script_dir = os.path.dirname(os.path.abspath(__file__))  # Get script directory
 dataset_day = pd.read_csv(os.path.join(script_dir, "dataset_day_clean.csv"))
